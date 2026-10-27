@@ -122,4 +122,8 @@ This is a portfolio project using synthetic data. Results describe the dataset o
 
 ## Author
 
-[Your name] · [LinkedIn] · [Email]
+**Sarthak Jaykar**
+
+LinkedIn: https://www.linkedin.com/in/sarthak-jaykar
+
+GitHub: https://github.com/sarthak-jaykar
