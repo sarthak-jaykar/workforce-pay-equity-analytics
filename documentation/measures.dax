@@ -1,0 +1,33 @@
+// =====================================================================
+// Workforce Pay Equity: DAX measures (add in Power BI Desktop)
+// Table: cleaned_pay_equity
+// All gap measures describe OBSERVED differences in this synthetic dataset.
+// They are not statistical tests and not evidence of cause.
+// Expected values (from cleaned_pay_equity.csv, after band fix):
+//   Total Employees 300 | Avg Salary Female 42,865.55 | Avg Salary Male 43,048.55
+//   Observed Gap (F-M) -183.00 | Observed Gap % of Male -0.4%
+// =====================================================================
+
+Total Employees =
+DISTINCTCOUNT ( cleaned_pay_equity[EmployeeID] )
+
+Avg Salary =
+AVERAGE ( cleaned_pay_equity[Salary] )
+
+Median Salary =
+MEDIAN ( cleaned_pay_equity[Salary] )
+
+Avg Salary Female =
+CALCULATE ( [Avg Salary], cleaned_pay_equity[Gender] = "Female" )
+
+Avg Salary Male =
+CALCULATE ( [Avg Salary], cleaned_pay_equity[Gender] = "Male" )
+
+Observed Gap (F-M) =
+[Avg Salary Female] - [Avg Salary Male]
+
+Observed Gap % of Male =
+DIVIDE ( [Observed Gap (F-M)], [Avg Salary Male] )
+
+Avg Experience Years =
+AVERAGE ( cleaned_pay_equity[ExperienceYears] )
